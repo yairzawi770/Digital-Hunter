@@ -25,6 +25,15 @@ services:
 
     volumes:
       - kafka_kraft:/var/lib/kafka/data
+      
+  elasticsearch:
+    image: elasticsearch:latest
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
 
-volumes:
-  kafka_kraft:
+
+  volumes:
+    kafka_kraft:

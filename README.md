@@ -1,35 +1,10 @@
-# Part 1 - Kafka Simulator
+There are 3 services here:
+1. is intel.
+2. attac.
+3. damage.
 
-## Setup
+First, we have 3 topics in the simulator file that are sent to the producer, and then we have the consumer that listens to messages.
 
-### 1. Install dependencies
+To receive the messages from Kafka, you need to run this command: 
 
-From the **project root directory**:
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Run the simulator
-
-From the `students_part_1/` directory, in a **separate terminal** (with the venv activated):
-
-```bash
-cd students_part_1
-python simulator.py
-```
-
-The simulator connects to Kafka at `localhost:9092` and continuously produces messages to 3 topics: `intel`, `attack`, and `damage`.
-
-Keep the simulator running in the background while you work on your consumer.
-
-Stop it with `Ctrl+C` when done.
-
-
-## Files you get
-
-| File                   | Description                   |
-|------------------------|-------------------------------|
-| `requirements.txt`     | Python dependencies           |
-| `simulator.py`         | Produces messages to Kafka    |
-| `haversine.py`         | Distance calculation function |
+docker compose up -d
