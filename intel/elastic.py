@@ -1,12 +1,20 @@
 from elasticsearch import Elasticsearch, helpers
 
 from students_part_1.simulator import _connect_producer
+import logging
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
+logger = logging.getLogger(__name__)
 
 es = Elasticsearch(["http://localhost:9200"])
 if es.ping():
-    print("connected")
+    logger.info("connected")
 else:
-    print("faild to connect")
+    logger.info("faild to connect")
 
 index_name = "intel"
 mapping = {
