@@ -8,7 +8,13 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
-logger = logging.getLogger(__name__)print("faild to connect")
+logger = logging.getLogger(__name__)
+
+es = Elasticsearch(["http://localhost:9200"])
+if es.ping():
+    logger.info("connected")
+else:
+    logger.info("faild to connect")
 
 index_name = "attack"
 mapping = {
